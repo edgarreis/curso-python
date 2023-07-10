@@ -1,0 +1,28 @@
+
+
+from conta import Conta
+from cliente import Cliente
+
+conta1 = Conta(4011,"Edgar dos Reis", 500.00, 2000.00)
+
+conta2 = Conta(3220,"Maria Santos", 100.0, 1000.00)
+
+conta1.extrato()
+
+conta2.extrato()
+
+conta1.transferir(50,conta2)
+
+conta1.extrato()
+
+conta2.extrato()
+
+conta1.limite()
+
+conta1.limite(5000.00)
+
+conta1.extrato()
+
+conta1.limite = 8000.00
+
+conta1.extrato()
