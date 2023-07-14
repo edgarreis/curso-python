@@ -1,9 +1,10 @@
 
 import os
+from abc import ABCMeta, abstractmethod # Importação da classe abstrata
 
 os.system('clear')
 
-class Catalogo:
+class Catalogo(metaclass = ABCMeta):
     def __init__(self, nome, ano):
         self._nome = nome.title()
         self.ano = ano
@@ -24,8 +25,9 @@ class Catalogo:
     def nome(self, novo_nome):
         self._nome = novo_nome.title()
 
-    def imprimir(self):
-        print(f'Nome: {self._nome} - Ano {self.ano} - Likes: {self._likes}')
+    @abstractmethod # método abstrato
+    def __str__(self):
+        pass
 
 
 class Filme(Catalogo):
@@ -34,8 +36,8 @@ class Filme(Catalogo):
         super().__init__(nome, ano)
         self.duracao = duracao 
 
-    def imprimir(self):
-        print(f'Nome: {self._nome} - Ano {self.ano} - {self.duracao} min - Likes: {self._likes}')
+    def __str__(self):
+        return f'Nome: {self._nome} - Ano {self.ano} - {self.duracao} min - Likes: {self._likes}'
 
     
 class Serie(Catalogo):
@@ -44,5 +46,45 @@ class Serie(Catalogo):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
-    def imprimir(self):
-        print(f'Nome: {self._nome} - Ano {self.ano} - {self.temporadas} temporadas - Likes: {self._likes}')
+    def __str__(self):
+
+        return f'Nome: {self._nome} - Ano {self.ano} - {self.temporadas} temporadas - Likes: {self._likes}'
+
+class Playlist():
+    def __init__(self, nome, catalogos):
+        self.nome = nome
+        self._catalogos = catalogos
+    
+    def __getitem__(self, item):
+        return self._catalogos[item]
+
+    """ # Trecho de codigo comentado após implementar 
+    __getitem__ e __len__ com duck typing
+
+    # Reuso da List por Composição - Playlist contêm listagem
+    @property
+    def listagem(self):
+        return self._catalogos
+    
+    # Reuso da List por Composição - Playlist contêm tamanho
+    @property
+    def tamanho(self):
+        return len(self._catalogos)
+    """
+    #def __append__(self, item):
+    #   return self._catalogos.append(item)
+
+    def __add__(self, item):
+        #ad = [item]
+        #ad = Playlist('fim de semana', item)
+        return self._catalogos + [item]
+    
+    def __append__(self, item):
+        ad = [item]
+        #ad = Playlist('fim de semana', item)
+        return self._catalogos.append(ad)
+    
+    def __len__(self):
+        #ad = [item]
+        #ad = Playlist('fim de semana', item)
+        return len(self._catalogos)
