@@ -1,9 +1,9 @@
 
-from filme import *
+from filme import Filme, Serie, Playlist
 
 # List
 vingadores = Filme('Vingadores', 2018, 180)
-atlanta = Serie('atlanta', 2018, 2)
+atlanta = Serie('Atlanta', 2018, 2)
 tmep = Filme('Todo mundo em pânico',1999, 100)
 demolidor = Serie('Demolidor', 2016, 2)
 vf = Filme('Velozes e furiosos', 2010, 120)
@@ -27,7 +27,7 @@ demolidor.dar_like()
 # List de Objetos
 filmes_e_series = [vingadores, atlanta, demolidor, tmep]
 
-playlist_fim_de_semana = Playlist('fim de semana', filmes_e_series)
+playlist_fim_de_semana = Playlist("fim de semana", filmes_e_series)
 
 print(f'Tamanho da playlist: {len(playlist_fim_de_semana)}')
 
@@ -51,4 +51,31 @@ for programa in playlist_fim_de_semana:
 
 print(f'Tamanho da playlist: {len(playlist_fim_de_semana)}')
 
-print(playlist_fim_de_semana[0].ano)
+filme_procurado = "Atlanta"
+
+if filme_procurado in playlist_fim_de_semana:
+    print(f'O filme {filme_procurado} está na playlist.')
+else:
+    print(f'O filme {filme_procurado} não está na playlist.')
+
+"""if playlist_fim_de_semana.pesquisar(filme_procurado):
+    print(f'O filme {filme_procurado} está na playlist.')
+else:
+    print(f'O filme {filme_procurado} não está na playlist.')"""
+
+"""def pesquisar_nome(nome, lista):
+    for filme in lista:
+        if filme.nome == nome:
+            return True
+    return False"""
+
+"""for programa in playlist_fim_de_semana:
+    if filme_procurado == programa.nome:
+        verificar = True
+        break
+    else:
+        verificar = False"""
+
+
+
+

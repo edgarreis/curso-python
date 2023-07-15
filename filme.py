@@ -29,6 +29,8 @@ class Catalogo(metaclass = ABCMeta):
     def __str__(self):
         pass
 
+    def __eq__(self, busca):
+        return self._nome == busca.nome
 
 class Filme(Catalogo):
     def __init__(self, nome, ano, duracao):
@@ -54,7 +56,16 @@ class Playlist():
     def __init__(self, nome, catalogos):
         self.nome = nome
         self._catalogos = catalogos
-    
+  
+    """    def pesquisar(self, filme_procurado, catalogos):
+        
+        self._catalogos = catalogos
+
+        for index in catalogos:
+            if filme_procurado == catalogos[index].nome:
+                return True
+            return False"""
+
     def __getitem__(self, item):
         return self._catalogos[item]
 
@@ -88,3 +99,19 @@ class Playlist():
         #ad = [item]
         #ad = Playlist('fim de semana', item)
         return len(self._catalogos)
+
+    # OPÇAO DE PESQUISA #1
+    @property
+    def pesquisar(self, filme_procurado):
+        for programa in self._catalogos:
+            if filme_procurado == self._catalogos[programa].nome:
+                return True
+        return False
+
+    # OPÇAO DE PESQUISA #2
+    def __contains__(self, filme_procurado):
+        for programa in self._catalogos:
+            if filme_procurado == programa.nome:
+                return True
+        return False
+
