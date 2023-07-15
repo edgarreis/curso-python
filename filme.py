@@ -72,7 +72,7 @@ class Playlist():
     """ # Trecho de codigo comentado após implementar 
     __getitem__ e __len__ com duck typing
 
-    # Reuso da List por Composição - Playlist contêm listagem
+     # Reuso da List por Composição - Playlist contêm listagem
     @property
     def listagem(self):
         return self._catalogos
