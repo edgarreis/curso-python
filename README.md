@@ -6,7 +6,7 @@ Os Programas jogos, adivinhação e forca são programas para treinar a linguage
 Os Programas conta, banco, cliente são programas para treinar orientação a objeto em python
 
 
-===================================================================================================
+===========================================================================
 
 # Python
 ## Nivel 1
