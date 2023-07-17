@@ -74,6 +74,7 @@ class Playlist():
     #def __append__(self, item):
     #   return self._catalogos.append(item)
 
+
     def __add__(self, item):
         #ad = [item]
         #ad = Playlist('fim de semana', item)
@@ -88,3 +89,32 @@ class Playlist():
         #ad = [item]
         #ad = Playlist('fim de semana', item)
         return len(self._catalogos)
+    
+    """# OPÇAO DE PESQUISA #1
+    @property
+    def pesquisar(self, filme_procurado):
+        for programa in self._catalogos:
+            if filme_procurado == self._catalogos[programa].nome:
+                return True
+        return False
+
+    # OPÇAO DE PESQUISA #2
+    def __contains__(self, filme_procurado):
+        for programa in self._catalogos:
+            if filme_procurado == self._catalogos[programa]._nome:
+                return True
+        return False
+    
+    # OPÇAO DE PESQUISA #3    
+    def __index__(self, filme_procurado):
+        for programa in self._catalogos:
+            if filme_procurado == self._catalogos[programa]._nome:
+                return True
+        return False"""
+    
+    # OPÇAO DE PESQUISA #4
+
+    def __contains__(self, filme_procurado):
+        if any(obj.nome == filme_procurado for obj in self._catalogos):
+            return True
+        return False

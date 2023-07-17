@@ -3,7 +3,7 @@ from filme import *
 
 # List
 vingadores = Filme('Vingadores', 2018, 180)
-atlanta = Serie('atlanta', 2018, 2)
+atlanta = Serie('Atlanta', 2018, 2)
 tmep = Filme('Todo mundo em pânico',1999, 100)
 demolidor = Serie('Demolidor', 2016, 2)
 vf = Filme('Velozes e furiosos', 2010, 120)
@@ -51,4 +51,26 @@ for programa in playlist_fim_de_semana:
 
 print(f'Tamanho da playlist: {len(playlist_fim_de_semana)}')
 
-print(playlist_fim_de_semana[0].ano)
+
+
+
+
+# OPÇAO DE PESQUISA DE CATALOGOS DE FILMES
+
+filme_procurado = "Vingadores"
+
+
+
+#print(playlist_fim_de_semana.index(filme_procurado))
+
+# OPÇAO DE PESQUISA #1
+if filme_procurado in playlist_fim_de_semana:
+    print(f'O filme {filme_procurado} está na playlist.')
+else:
+    print(f'O filme {filme_procurado} não está na playlist.')
+
+# OPÇAO DE PESQUISA #2
+"""if playlist_fim_de_semana.pesquisar(filme_procurado):
+    print(f'O filme {filme_procurado} está na playlist.')
+else:
+    print(f'O filme {filme_procurado} não está na playlist.')"""
