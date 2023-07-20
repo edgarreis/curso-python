@@ -1,3 +1,8 @@
+import re
+import os
+from abc import ABCMeta, abstractmethod # Importação da classe abstrata
+
+os.system('clear')
 
 class ExtratoURL:
     def __init__(self, url):
@@ -16,6 +21,14 @@ class ExtratoURL:
     def valida_url(self):
         if not self.url:    # if not bool(self.url):
             raise ValueError("A URL está vazia")
+        
+        padrao_url = re.compile('(http(s)?://)?(www.)?bytebank.com(.br)?/cambio')
+        match = padrao_url.match(self.url)
+
+        if not match:
+            raise ValueError("A URL não é valida.")
+
+        print("A URL é valida")
 
     # TODO Substitur get_s por @property    
     def get_url_base(self):
@@ -39,7 +52,22 @@ class ExtratoURL:
             valor = self.get_url_parametros()[indice_valor:indice_e_comercial]
         return valor
     
+    def __len__(self):
+        return len(self.url)
+    
+    def __eq__(self, other):
+        return self.url == other.url
+    
+    @abstractmethod # método abstrato
+    def __str__(self):
+        return self.url
+    
 
-extrator_url = ExtratoURL("https://bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&quantidade=100")
-valor_quantidade = extrator_url.get_valor_parametro("moedaOrigem")
+extrator_url = ExtratoURL("www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&quantidade=100")
+extrator_url2 = ExtratoURL("www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&quantidade=100")
+
+valor_quantidade = extrator_url.get_valor_parametro("moedaDestino")
 print(valor_quantidade)
+print("O tamanho da URL:",len(extrator_url))
+print(extrator_url)
+print(extrator_url == extrator_url2)
