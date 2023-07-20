@@ -1,8 +1,8 @@
 
 <<<<<<< HEAD
-from filme import *
+from locadora.filme import *
 =======
-from filme import Filme, Serie, Playlist
+from locadora.filme import Filme, Serie, Playlist
 >>>>>>> 12b446a3d00fdaeed97744ecf4c894e1dbc0d050
 
 # List

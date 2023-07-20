@@ -1,5 +1,5 @@
 
-from filme import *
+from locadora.filme import *
 
 def main():
     catalogo = []  # Lista para armazenar os filmes e séries

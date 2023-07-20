@@ -3,7 +3,7 @@ import os
 import time
 
 import forca
-import adivinhacao
+import jogos.adivinhacao as adivinhacao
 
 
 def escolher_jogo():
