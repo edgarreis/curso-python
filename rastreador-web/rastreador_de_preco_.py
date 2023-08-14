@@ -37,15 +37,8 @@ while True:
     print(f"Hour: {h}, Minute: {m}, Second: {s}")
     #print(type(delta))
     #print(delta)
-
-
-
-
-
     
-
     # <div class="btn-text"><p>21/09 -CURITIBA/PR (link em breve)</p><p class="link-text">instagram.com/giovanafagundes</p></div>
-
     #<span id="lbl-time" class="colored digit text-nowrap font-digit" style="font-size: 102px;">01:19:41</span>
 
     sleep(interval)
