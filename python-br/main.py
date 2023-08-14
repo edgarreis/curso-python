@@ -5,7 +5,7 @@ from acessoCEP import *
 
 # Trabalhando com Documentos BR
 #doc = input("Digite o Documento: ")
-doc = "07906750993"
+doc = "392.475.380-68"
 ob_doc = DocumentoBR.create(doc)
 print(ob_doc)
 
@@ -13,7 +13,7 @@ print(ob_doc)
 # 392.475.380-68
 
 # Trabalhando com Telefones
-telefone = "55341987031286"
+telefone = "553419888776655"
 fone = TelefoneBR(telefone)
 print(fone)
 
@@ -22,7 +22,7 @@ cadastro = DatasBR()
 print(cadastro.tempo_cadastro())
 
 # Trabalhando com Endereços
-cep = 83501480
+cep = 83500400
 obj_cep = BuscaEndereco(cep)
 logradouro, bairro, cidade, uf = obj_cep.acessar_viacep()
 b = obj_cep.acessar_viacep()
