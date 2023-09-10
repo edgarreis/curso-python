@@ -83,8 +83,6 @@ if __name__ == '__main__':
     print("VALOR TOTAL")
     print(orcamento.valor)
     print('========================================')
-    
-    
 
     # Verifica Desconto Extra
     calculador_de_descontos = CalculadorDeDescontos()
